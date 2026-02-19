@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 const Scene3DContent = dynamic(
   () => import("./Scene3DContent"),
@@ -15,5 +16,9 @@ const Scene3DContent = dynamic(
 );
 
 export default function Scene3D() {
-  return <Scene3DContent />;
+  return (
+    <ErrorBoundary>
+      <Scene3DContent />
+    </ErrorBoundary>
+  );
 }
